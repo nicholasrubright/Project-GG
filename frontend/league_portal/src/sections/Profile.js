@@ -3,8 +3,12 @@ import axios from 'axios';
 
 import RankStatCard from '../components/RankStatCard';
 
-export default function Profile () {
+export default function Profile (props) {
     
+    // Information about summoner_name, summoner region, game version, etc.
+    const [localInfo, setLocalInfo] = useState(props.localInfo);
+
+
     const [profileInformation, setProfileInformation] = useState({
         "profile": {},
         "ranked": []
@@ -21,7 +25,7 @@ export default function Profile () {
             setProfileInformation(results['data']);
             setIsLoading(false);
             };
-            fetchData();
+        fetchData();
     }, []);
     
     const iconURL =  isLoading ?  "#" : "http://ddragon.leagueoflegends.com/cdn/11.11.1/img/profileicon/" + profileInformation['profile']['profileIcon'] + ".png";

@@ -1,6 +1,6 @@
 
-const API_KEY = 'RGAPI-a154ddb9-28b7-4ff9-af0a-6ada7f99d3c6';
 
+const API_KEY = process.env.RIOT_API_KEY;
 const LeagueJS = require('../node_modules/leaguejs');
 const leagueJs = new LeagueJS(API_KEY);
 
