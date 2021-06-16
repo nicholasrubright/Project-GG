@@ -57,20 +57,41 @@ export default function Main(props) {
                     fetchData={fetchData}
                 />
             </div>
-
+            
             <div className="container">
+                {isLoading && 
+                    <div className="container">
+                        <div className="d-flex justify-content-center">
+                            <div className="loader"></div>
+                        </div>
+                    </div>
+                }
+                {localInfo.searchSummoner && !isLoading &&
+                <div className="row">
+                    <div className="col-4">
+                        <Profile 
+                            profileInfo={profileInfo}
+                        />
+                    </div>
+                    <div className="col-8">
+                        <h1>hello world</h1>
+                    </div>
+                </div>}
+            </div>
+            
+            {/* <div className="container">
                 <div className="d-flex justify-content-center">
                 {isLoading && <div className="loader"></div>}
                 </div>
-            </div>
+            </div> */}
 
-            <div>
+            {/* <div>
             {localInfo.searchSummoner && !isLoading && 
                 <Profile 
                     profileInfo={profileInfo}
                 />
             }
-            </div>
+            </div> */}
 
         </div>
     );

@@ -25,8 +25,6 @@ export default function Profile (props) {
 
     return (
         <div>
-            <h1>Profile Information</h1>
-
             <div className="container" id="profile-info">
                 <div className="card text-center" style={{width: "18rem"}}>
                     <div className="card-body">

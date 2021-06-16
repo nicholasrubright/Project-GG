@@ -9,13 +9,13 @@ export default function RankStatCard(props) {
     const losses = props.losses;
 
     return (
-        <div id="rank-stat-card" className="card text-center">
+        <div id="rank-stat-card" className="card text-center" style={{width: "18rem"}}>
             <div className="card-title">
-                <h1>{queueType}</h1>
+                <h5>{queueType}</h5>
             </div>
             <div className="card-body">
-                <h2>{tier} {rank}</h2>
-                <h4>{wins} / {losses}</h4>
+                <p>{tier} {rank}</p>
+                <p>{wins} / {losses}</p>
             </div>
         </div>
     );
