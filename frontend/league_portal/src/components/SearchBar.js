@@ -43,7 +43,7 @@ export default function SearchBar (props) {
                 <button className="dropdown-item" type="button" onClick={() => changeRegion("NA")}>NA</button>
                 <button className="dropdown-item" type="button" onClick={() => changeRegion("EU")}>EU</button>
             </div>
-            <button type="button" className="btn btn-primary" onClick={() => props.searchSummoner(searchInfo.searchText, searchInfo.searchRegion)}><AiOutlineSearch /></button>
+            <button type="button" className="btn btn-primary" onClick={() => {props.searchSummoner(searchInfo.searchText, searchInfo.searchRegion); props.fetchData(searchInfo.searchText, searchInfo.searchRegion);}}><AiOutlineSearch /></button>
         </div>
     );
 

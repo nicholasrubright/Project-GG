@@ -4,33 +4,12 @@ import axios from 'axios';
 import RankStatCard from '../components/RankStatCard';
 
 export default function Profile (props) {
+
+    const [profileInfo, setProfileInfo] = useState(props.profileInfo);
     
-    // Information about summoner_name, summoner region, game version, etc.
-    const [localInfo, setLocalInfo] = useState(props.localInfo);
-
-
-    const [profileInformation, setProfileInformation] = useState({
-        "profile": {},
-        "ranked": []
-    });
-
-    const [isLoading, setIsLoading] = useState(false);
-
-    useEffect( () => {
-        const fetchData = async () => {
-            setIsLoading(true);
-            const results = await axios(
-                'http://localhost:3001/summoner/mega%20sloppy/profile',
-                );
-            setProfileInformation(results['data']);
-            setIsLoading(false);
-            };
-        fetchData();
-    }, []);
+    const iconURL =  props.isLoading ?  "#" : "http://ddragon.leagueoflegends.com/cdn/11.11.1/img/profileicon/" + profileInfo['profile']['profileIcon'] + ".png";
     
-    const iconURL =  isLoading ?  "#" : "http://ddragon.leagueoflegends.com/cdn/11.11.1/img/profileicon/" + profileInformation['profile']['profileIcon'] + ".png";
-    
-    const rankCards = profileInformation['ranked'].map((stats) => {
+    const rankCards = profileInfo['ranked'].map((stats) => {
          return ( 
             <RankStatCard 
                 queueType={stats['queueType']}
@@ -48,16 +27,21 @@ export default function Profile (props) {
     return (
         <div>
             <h1>Profile Information</h1>
-            <div className="container">
-            {isLoading && <div className="loader"> </div>}
-            </div>
+            {/* <div className="container">
+            {props.isLoading && <div className="loader"> </div>}
+            </div> */}
+
+            {/* <div>
+                <h1>Data Inforamtoin</h1>
+                <p>{JSON.stringify(profileInfo)}</p>
+            </div> */}
 
             <div className="container" id="profile-info">
                 <div className="card text-center">
                     <div className="card-body">
                         <img className="profile-icon" src={iconURL} />
-                        <h1>{profileInformation['profile']['summonerName']}</h1>
-                        <h2>{profileInformation['profile']['summonerLevel']}</h2>
+                        <h1>{profileInfo['profile']['summonerName']}</h1>
+                        <h2>{profileInfo['profile']['summonerLevel']}</h2>
                     </div>
                 </div>
             </div>
