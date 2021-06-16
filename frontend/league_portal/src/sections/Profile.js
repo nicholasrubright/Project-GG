@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
 import RankStatCard from '../components/RankStatCard';
 
@@ -27,17 +26,9 @@ export default function Profile (props) {
     return (
         <div>
             <h1>Profile Information</h1>
-            {/* <div className="container">
-            {props.isLoading && <div className="loader"> </div>}
-            </div> */}
-
-            {/* <div>
-                <h1>Data Inforamtoin</h1>
-                <p>{JSON.stringify(profileInfo)}</p>
-            </div> */}
 
             <div className="container" id="profile-info">
-                <div className="card text-center">
+                <div className="card  text-center">
                     <div className="card-body">
                         <img className="profile-icon" src={iconURL} />
                         <h1>{profileInfo['profile']['summonerName']}</h1>
@@ -50,21 +41,6 @@ export default function Profile (props) {
                 {rankCards}
             </div>
 
-            {/* <div className="container" id="rank-info">
-                <div className="card text-center">
-                    <div className="card-body">
-                        <h1>{profileInformation['ranked'][0]['queueType'].includes("SOLO") ? "Solo Queue" : "Not"}</h1>
-                        <p>{profileInformation['ranked'][0]['tier']}<span> {profileInformation['ranked'][0]['rank']}</span></p>
-                        <h4>{profileInformation['ranked'][0]['wins']} / {profileInformation['ranked'][0]['losses']}</h4>
-                    </div>
-                </div>
-                <div className="card text-center">
-                    <div className="card-body">
-                        <h1>{JSON.stringify(profileInformation['ranked'])}</h1>
-                        <h1>{}</h1>
-                    </div>
-                </div>
-            </div> */}
         </div>
     );
 };

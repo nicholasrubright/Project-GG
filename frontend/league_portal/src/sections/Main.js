@@ -39,7 +39,7 @@ export default function Main(props) {
     const fetchData = async (summoner_name, summoner_region) => {
         // const summoner_name = localInfo.summonerName;
         // const summoner_region = localInfo.summonerRegion;
-        const url = "http://localhost:3001/summoner/" + summoner_name + "/profile";
+        const url = `http://localhost:3001/summoner/${summoner_name}/profile`;
         setIsLoading(true);
         const results = await axios(url);
         setProfileInfo(results['data']);
@@ -71,8 +71,6 @@ export default function Main(props) {
                 />
             }
             </div>
-
-            {/* <Profile /> */}
 
         </div>
     );
