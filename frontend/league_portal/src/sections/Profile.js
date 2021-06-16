@@ -28,11 +28,11 @@ export default function Profile (props) {
             <h1>Profile Information</h1>
 
             <div className="container" id="profile-info">
-                <div className="card  text-center">
+                <div className="card text-center" style={{width: "18rem"}}>
                     <div className="card-body">
                         <img className="profile-icon" src={iconURL} />
-                        <h1>{profileInfo['profile']['summonerName']}</h1>
-                        <h2>{profileInfo['profile']['summonerLevel']}</h2>
+                        <h3>{profileInfo['profile']['summonerName']}</h3>
+                        <h4>Lvl: {profileInfo['profile']['summonerLevel']}</h4>
                     </div>
                 </div>
             </div>
