@@ -1,3 +1,8 @@
+body {
+    background-color: #00171F !important;
+}
+
+
 .loader {
     border: 10px solid #f3f3f3; /* Light grey */
     border-top: 10px solid #3498db; /* Blue */
@@ -16,4 +21,22 @@
     border-radius: 50%;
     width: 100px;
     height: 100px;
+    color: black;
+}
+
+.match_card {
+    padding: 20px;
+    margin: 5px;
+    border-radius: 30px;
+}
+
+.championIcon {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+
+.itemIcon {
+    width: 30px;
+    height: 30px;
 }

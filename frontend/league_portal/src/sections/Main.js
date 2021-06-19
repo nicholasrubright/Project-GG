@@ -5,6 +5,7 @@ import axios from 'axios';
 import SearchBar from '../components/SearchBar';
 
 import Profile from './Profile';
+import MatchHistory from './MatchHistory';
 
 
 export default function Main(props) {
@@ -58,7 +59,7 @@ export default function Main(props) {
                 />
             </div>
             
-            <div className="container">
+            <div className="container-lg">
                 {isLoading && 
                     <div className="container">
                         <div className="d-flex justify-content-center">
@@ -68,13 +69,15 @@ export default function Main(props) {
                 }
                 {localInfo.searchSummoner && !isLoading &&
                 <div className="row">
-                    <div className="col-4">
+                    <div className="col-3">
                         <Profile 
                             profileInfo={profileInfo}
                         />
                     </div>
-                    <div className="col-8">
-                        <h1>hello world</h1>
+                    <div className="col-9">
+                        <MatchHistory 
+                            summonerName={localInfo.summonerName}
+                        />
                     </div>
                 </div>}
             </div>

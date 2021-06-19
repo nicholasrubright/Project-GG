@@ -1,4 +1,6 @@
+const champList = require('../config/staticFiles/11.12.1/en_US/championFull.json');
 
+const champKeys = champList.keys;
 
 // var match_history_json_template = {
 //     playerIdentity: "",
@@ -36,6 +38,8 @@ const statsInfo = (playerId, participants) => {
     const teamId = participantInfo.teamId;
     
     const championId = participantInfo.championId;
+    const championName = champKeys[championId];
+
     const spell_1 = participantInfo.spell1Id;
     const spell_2 = participantInfo.spell2Id;
 
@@ -51,6 +55,7 @@ const statsInfo = (playerId, participants) => {
 
     const data_results = {
         championId: championId,
+        championName: championName,
         spell_1: spell_1,
         spell_2: spell_2,
         win: win,

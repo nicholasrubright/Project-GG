@@ -2,9 +2,9 @@ const leagueJs = require('../config/modConfig');
 
 const name = "mega sloppy";
 
-const champList = require('../config/staticFiles/11.12.1/en_US/championFull.json');
+// const champList = require('../config/staticFiles/11.12.1/en_US/championFull.json');
 
-const champKeys = champList.keys;
+// const champKeys = champList.keys;
 
 const matchHistoryService = require('../services/summoner_match_history');
 
