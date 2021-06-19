@@ -6,6 +6,7 @@ const champList = require('../config/staticFiles/11.12.1/en_US/championFull.json
 
 const champKeys = champList.keys;
 
+const matchHistoryService = require('../services/summoner_match_history');
 
 exports.test_function = (req, res) => {
 
@@ -35,8 +36,20 @@ exports.test_function = (req, res) => {
             return temp;
         });
 
-    //match_info.then(x => Promise.all(x).then(y => res.json(y)));  // prints many games
-    match_info.then(([x]) => Promise.all([x]).then(y => res.json(y)));  // prints 1 game
+    accountData.then(
+        account_data => {
+            match_info.then(x => Promise.all(x)
+                                    .then(y =>  {
+                                        temp = [];
+                                        y.forEach(match => temp.push(matchHistoryService.buildMatchHistory(match, account_data['accountId'])));
+                                        res.json(temp);
+                                        //res.json([y, account_data]) 
+                                    }));
+        }
+    )
+
+    //match_info.then(x => Promise.all(x, accountData).then(y => res.json(y)));  // prints many games
+    //match_info.then(([x]) => Promise.all([x, accountData]).then(y => res.json(matchHistoryService.buildMatchHistory(y[0], y[1].accountId))));  // prints 1 game
     
 
     // Special Game mode is queue: 1300
