@@ -7,6 +7,8 @@ var cors = require('cors');
 var indexRouter = require('./routes/index');
 var summonerRouter = require('./routes/summoner');
 
+var matchRouter = require('./routes/matchHistory');
+
 var app = express();
 
 process.env.PORT = 3001;
@@ -20,5 +22,7 @@ app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/summoner', summonerRouter);
+
+app.use('/match', matchRouter);
 
 module.exports = app;

@@ -1,8 +1,5 @@
+const leagueJs = require('../config/modConfig');
 
-
-const API_KEY = process.env.RIOT_API_KEY;
-const LeagueJS = require('../node_modules/leaguejs');
-const leagueJs = new LeagueJS(API_KEY);
 
 
 exports.summoner_profile = (req, res) => {
@@ -16,14 +13,6 @@ exports.summoner_profile = (req, res) => {
         .then(account_data => {
             return leagueJs.League.gettingLeagueEntriesForSummonerId(account_data['id']);
         });
-
-    // leagueData
-    //     .then(league_data => {
-    //         console.log(league_data);
-    //     })
-    //     .catch(err => {
-    //         console.log("Error: " + err);
-    //     })
     
     Promise.all([leagueData, accountData])
         .then(([league_data, account_data]) => {
@@ -62,7 +51,32 @@ exports.summoner_profile = (req, res) => {
 };
 
 exports.summoner_match_history = (req, res) => {
-    res.send('NOT IMPLEMENETED: Summoner Match History: ' + req.params.summoner_name);
+    const summoner_name = req.params.summoner_name;
+
+    var accountdata = leagueJs.Summoner.gettingByName(summoner_name);
+
+
+    var data = accountdata
+        .then(account_data => {
+            return leagueJs.Match.gettingListByAccount(account_data['accountId']);
+        });
+
+    // Promise.all([data, accountdata])
+    //     .then(([data, account_data]) => {
+    //         console.log("data: " + JSON.stringify(data.matches[0]));
+    //     })
+
+    var match_data = data
+        .then(data => {
+            return leagueJs.Match.gettingById(data.matches[0].gameId);
+        });
+
+
+    Promise.all([match_data])
+        .then(([match_data]) => {
+            //console.log(JSON.stringify(match_data));
+            res.json(match_data);
+        });
 };
 
 exports.summoner_champion_mastery = (req, res) => {
