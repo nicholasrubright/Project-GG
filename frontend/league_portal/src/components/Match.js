@@ -3,8 +3,6 @@ import react from 'react';
 
 export default function Match(props) {
 
-    console.log(JSON.stringify(props));
-
     const championName = props.data.championName;
     const spell_1 = props.data.spell_1;
     const spell_2 = props.data.spell_2;
@@ -24,8 +22,6 @@ export default function Match(props) {
         item5: `http://ddragon.leagueoflegends.com/cdn/11.12.1/img/item/${items[4]}.png`,
         item6: `http://ddragon.leagueoflegends.com/cdn/11.12.1/img/item/${items[5]}.png`
     };
-
-    //const win_lose = true;
 
     const match_item = 
         <div>

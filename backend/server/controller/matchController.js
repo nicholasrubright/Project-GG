@@ -15,7 +15,7 @@ exports.match_history = (req, res) => {
 
     var match_ids = match_list
         .then(match_list => {
-            var matcheList = match_list.matches.filter(x => x.queue === 420);
+            var matcheList = match_list.matches.filter(x => x.queue === 420 || x.queue === 440);
             
             var list = [];
             matcheList.forEach(x => list.push(x.gameId));

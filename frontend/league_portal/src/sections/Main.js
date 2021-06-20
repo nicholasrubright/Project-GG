@@ -6,6 +6,7 @@ import SearchBar from '../components/SearchBar';
 
 import Profile from './Profile';
 import MatchHistory from './MatchHistory';
+// import GraphCard from '../components/GraphCard';
 
 
 export default function Main(props) {
@@ -58,6 +59,9 @@ export default function Main(props) {
                     fetchData={fetchData}
                 />
             </div>
+            {/* <div>
+                <GraphCard />
+            </div> */}
             
             <div className="container-lg">
                 {isLoading && 
