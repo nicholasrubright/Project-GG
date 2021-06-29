@@ -20,7 +20,6 @@ exports.buildMatchHistory = (match_history, accountId) => {
    
 
     const match_history_results = {...playerInfo_data, ...statsInfo_data};
-
     return match_history_results;
 
 

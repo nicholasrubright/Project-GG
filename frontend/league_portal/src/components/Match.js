@@ -25,7 +25,7 @@ export default function Match(props) {
 
     const match_item = 
         <div>
-            <div className="container match_card" style={{backgroundColor: win ? "#9EE493" : "#FF595E"}}>
+            <div className="container match_card" style={{backgroundColor: win ? "#BADEFC" : "#EB5160"}}>
                 <div className="row align-items-center">
                     <div className="col">
                         <img className="championIcon" src={champIconURL} />

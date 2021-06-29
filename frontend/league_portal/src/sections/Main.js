@@ -6,7 +6,6 @@ import SearchBar from '../components/SearchBar';
 
 import Profile from './Profile';
 import MatchHistory from './MatchHistory';
-// import GraphCard from '../components/GraphCard';
 
 
 export default function Main(props) {
@@ -34,13 +33,10 @@ export default function Main(props) {
             searchSummoner: true
         });
 
-        //startSearch();
         console.log("summoner: " + summoner_name + "\nregion: " + region);
     }
 
     const fetchData = async (summoner_name, summoner_region) => {
-        // const summoner_name = localInfo.summonerName;
-        // const summoner_region = localInfo.summonerRegion;
         const url = `http://localhost:3001/summoner/${summoner_name}/profile`;
         setIsLoading(true);
         const results = await axios(url);
@@ -59,9 +55,6 @@ export default function Main(props) {
                     fetchData={fetchData}
                 />
             </div>
-            {/* <div>
-                <GraphCard />
-            </div> */}
             
             <div className="container-lg">
                 {isLoading && 
