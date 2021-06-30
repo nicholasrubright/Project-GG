@@ -9,8 +9,8 @@ export default function MatchHistory(props) {
 
     const [isLoading, setIsLoading] = useState(false);
 
-    const fetchData = async (summoner_name, summoner_region) => {
-        const url = `http://localhost:3001/summoner/${summoner_name}/match_history`;
+    const fetchData = async (summoner_name) => {
+        const url = `http://localhost:3001/summoner/${summoner_name}/matchHistory`;
         setIsLoading(true);
         const results = await axios(url);
         setMatchHistory(results["data"]);

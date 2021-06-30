@@ -6,7 +6,7 @@ import SearchBar from '../components/SearchBar';
 
 import Profile from './Profile';
 import MatchHistory from './MatchHistory';
-
+import Rank from './Rank';
 
 export default function Main(props) {
     
@@ -17,10 +17,9 @@ export default function Main(props) {
             searchSummoner: false,
     });
 
-    const [profileInfo, setProfileInfo] = useState({
-        "profile": {},
-        "ranked": []
-    });
+    const [profileInfo, setProfileInfo] = useState({});
+
+    const [rankInfo, setRankInfo] = useState([]);
 
     const [isLoading, setIsLoading] = useState(false);
 
@@ -36,11 +35,19 @@ export default function Main(props) {
         console.log("summoner: " + summoner_name + "\nregion: " + region);
     }
 
-    const fetchData = async (summoner_name, summoner_region) => {
-        const url = `http://localhost:3001/summoner/${summoner_name}/profile`;
+    function setSummonerInfo(profile, rank) {
+        setProfileInfo(profile);
+        console.log("rank: " + JSON.stringify(rank));
+        setRankInfo(rank);
+    }
+
+    const fetchData = async (summoner_name) => {
+        const profile_url = `http://localhost:3001/summoner/${summoner_name}/profile`;
+        const rank_url = `http://localhost:3001/summoner/${summoner_name}/rankStats`;
         setIsLoading(true);
-        const results = await axios(url);
-        setProfileInfo(results['data']);
+        const profile_results = await axios(profile_url);
+        const rank_results = await axios(rank_url);
+        setSummonerInfo(profile_results.data, rank_results.data);
         setIsLoading(false);
     };
 
@@ -69,6 +76,9 @@ export default function Main(props) {
                     <div className="col-3">
                         <Profile 
                             profileInfo={profileInfo}
+                        />
+                        <Rank 
+                            rankInfo={rankInfo}
                         />
                     </div>
                     <div className="col-9">
