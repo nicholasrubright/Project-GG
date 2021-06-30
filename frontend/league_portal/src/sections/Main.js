@@ -32,8 +32,6 @@ export default function Main(props) {
             summonerRegion: region,
             searchSummoner: true
         });
-
-        console.log("summoner: " + summoner_name + "\nregion: " + region);
     }
 
     const fetchData = async (summoner_name, summoner_region) => {

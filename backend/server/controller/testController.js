@@ -1,6 +1,6 @@
 const leagueJs = require('../config/modConfig');
 
-const name = "mega sloppy";
+const name = "";
 
 // const champList = require('../config/staticFiles/11.12.1/en_US/championFull.json');
 
@@ -9,7 +9,7 @@ const name = "mega sloppy";
 const matchHistoryService = require('../services/summoner_match_history');
 
 
-
+const errorService = require('../services/summoner_error');
 
 exports.test_function = (req, res) => {
 
@@ -41,7 +41,9 @@ exports.test_function = (req, res) => {
                         res.json(response);
                     })
                 })
-        })
+        }).catch(err => {
+            errorService.sendError(res, err);
+        });
 
 
 
