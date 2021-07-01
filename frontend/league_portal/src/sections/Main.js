@@ -7,6 +7,7 @@ import SearchBar from '../components/SearchBar';
 import Profile from './Profile';
 import MatchHistory from './MatchHistory';
 import Rank from './Rank';
+import Error from '../components/Error';
 
 export default function Main(props) {
     
@@ -23,6 +24,11 @@ export default function Main(props) {
 
     const [isLoading, setIsLoading] = useState(false);
 
+    const [isError, setIsError] = useState({
+        error: false,
+        message: "No summoner found"
+    });
+
     function searchSummoner(summoner_name, region) {
 
         setLocalInfo({
@@ -37,7 +43,6 @@ export default function Main(props) {
 
     function setSummonerInfo(profile, rank) {
         setProfileInfo(profile);
-        console.log("rank: " + JSON.stringify(rank));
         setRankInfo(rank);
     }
 
@@ -47,23 +52,28 @@ export default function Main(props) {
         setIsLoading(true);
         const profile_results = await axios(profile_url);
         const rank_results = await axios(rank_url);
+
         setSummonerInfo(profile_results.data, rank_results.data);
         setIsLoading(false);
     };
 
 
+
     return (
-        <div>
+        <div className="container">
             <h1>Hello World!</h1>
 
-            <div className="container">
+            <div className="container-fluid">
                 <SearchBar 
                     searchSummoner={searchSummoner}
                     fetchData={fetchData}
                 />
             </div>
+
+            {isError.error && <Error message={isError.message}/>}
+
             
-            <div className="container-lg">
+            <div className="container">
                 {isLoading && 
                     <div className="container">
                         <div className="d-flex justify-content-center">

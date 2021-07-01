@@ -1,25 +1,32 @@
 import React, { useState } from 'react';
 
-import RankStatCard from '../components/RankStatCard';
 
 export default function Rank (props) {
     const [rankInfo, setRankInfo] = useState(props.rankInfo);
 
-    const rankCards = rankInfo.map((entry) => {
+    var rankEntries = rankInfo.map(entry => {
         return (
-            <RankStatCard
-                queueType={entry.queueType}
-                tier={entry.tier}
-                rank={entry.rank}
-                wins={entry.wins}
-                losses={entry.losses}
-            />
+            <div>
+                <h3>{entry.queueType.includes("SOLO") ? "Solo Queue" : "Flex Queue"}</h3>
+                <h5>{entry.tier} {entry.rank}</h5>
+                <h5>{entry.wins} / {entry.losses}</h5>
+            </div>
         )
     });
 
+    if(rankEntries.length > 1) {
+        rankEntries.splice(1, 0,<hr />)
+    }
+
+
+
     return (
-        <div className="container" id="rank-cards">
-            {rankCards}
+        <div className="container g-0" id="rank-card" style={{paddingTop: "1rem"}}>
+             <div className="card text-center rank-card" style={{width: "18rem"}}>
+                    <div className="card-body">
+                        {rankEntries}
+                    </div>
+                </div>
         </div>
     )
 }

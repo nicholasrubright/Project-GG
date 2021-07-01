@@ -42,3 +42,9 @@ body {
     width: 30px;
     height: 30px;
 }
+
+.alert-box {
+    color: #6b1f26;
+    height: 8rem;
+    background-color: #e66673;
+}
