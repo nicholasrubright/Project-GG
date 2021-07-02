@@ -23,6 +23,8 @@ export default function Main(props) {
 
     const [rankInfo, setRankInfo] = useState([]);
 
+    const [masteryInfo, setMasteryInfo] = useState([]);
+
     const [isLoading, setIsLoading] = useState(false);
 
     const [isError, setIsError] = useState({
@@ -42,19 +44,21 @@ export default function Main(props) {
         console.log("summoner: " + summoner_name + "\nregion: " + region);
     }
 
-    function setSummonerInfo(profile, rank) {
+    function setSummonerInfo(profile, rank, mastery) {
         setProfileInfo(profile);
         setRankInfo(rank);
+        setMasteryInfo(mastery);
     }
 
     const fetchData = async (summoner_name) => {
         const profile_url = `http://localhost:3001/summoner/${summoner_name}/profile`;
         const rank_url = `http://localhost:3001/summoner/${summoner_name}/rankStats`;
+        const mastery_url = `http://localhost:3001/summoner/${summoner_name}/mastery`;
         setIsLoading(true);
         const profile_results = await axios(profile_url);
         const rank_results = await axios(rank_url);
-
-        setSummonerInfo(profile_results.data, rank_results.data);
+        const mastery_results = await axios(mastery_url);
+        setSummonerInfo(profile_results.data, rank_results.data, mastery_results.data);
         setIsLoading(false);
     };
 
@@ -95,7 +99,9 @@ export default function Main(props) {
                             rankInfo={rankInfo}
                         />
 
-                        <Mastery />
+                        <Mastery 
+                            masteryInfo={masteryInfo}
+                        />
 
                     </div>
                     <div className="col-9">

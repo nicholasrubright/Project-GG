@@ -56,3 +56,21 @@ exports.matchHistory = (req, res) => {
                 })
         })
 }
+
+exports.mastery = (req, res) => {
+
+    const summoner_name = req.params.summoner_name;
+
+    leagueJs.Summoner.gettingByName(summoner_name)
+        .then(account_data => {
+            leagueJs.ChampionMastery.gettingBySummoner(account_data.id)
+                .then(mastery_entries => {
+                    if(mastery_entries.length > 3) {
+                        mastery_entries = mastery_entries.splice(0, 3);
+                    }
+                    var response = Summoner.buildChampionMastery(mastery_entries);
+                    res.json(response);
+                });
+        });
+
+}

@@ -2,12 +2,16 @@ import React from 'react';
 
 export default function Mastery(props) {
     
-    // const mastery = props.championMastery.map((entry) => {
-    //     <div className="col">
-    //         <img alt="#" className="championIcon" src="http://localhost:3001/summoner/${summoner_name}/profile" />
-    //         <p>121323pts</p>
-    //     </div>
-    // })
+    const mastery = props.masteryInfo.map((entry) => {
+        
+        return (
+            <div className="col" style={{padding: "10px"}}>
+                <img alt="#" className="championIcon" src={`http://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/${entry.name}.png`} />
+                <h6>Level: {entry.level}</h6>
+                <h6>{entry.points} pts</h6>
+            </div>
+        )
+    })
 
 
     return (
@@ -18,20 +22,7 @@ export default function Mastery(props) {
                     </div>
                     <div className="card-body">
                         
-                        <div className="col">
-                            <img alt="#" className="championIcon" src="http://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/Lulu.png" />
-                            <p>121323pts</p>
-                        </div>
-
-                        <div className="col">
-                            <img alt="#" className="championIcon" src="http://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/Lulu.png" />
-                            <p>121323pts</p>
-                        </div>
-
-                        <div>
-                            <img alt="#" className="championIcon" src="http://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/Lulu.png" />
-                            <p>121323pts</p>
-                        </div>
+                        {mastery}
 
                     </div>
                 </div>

@@ -75,6 +75,15 @@ exports.Summoner = {
 
         const match_history_results = {...playerInfo_data, ...statsInfo_data};
         return match_history_results;
+    },
+
+    buildChampionMastery(masteries) {
+        return masteries.map(entry => ({
+            id: entry.championId,
+            name: champKeys[entry.championId],
+            level: entry.championLevel,
+            points: entry.championPoints
+        }));
     }
 
 }

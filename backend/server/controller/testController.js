@@ -7,9 +7,19 @@ const { Summoner } = require('../services/summonerService');
 
 exports.test_function = (req, res) => {
 
-    leagueJs.StaticData.gettingVersions()
-        .then(versions => {
-            res.json(versions);
-        });
+    leagueJs.Summoner.gettingByName(name)
+        .then(account => {
+            leagueJs.ChampionMastery.gettingBySummoner(account.id)
+                .then(mastery_entries => {
+
+                    if(mastery_entries.length > 3) {
+                        mastery_entries = mastery_entries.splice(0, 3);
+                    }
+
+                    var response = Summoner.buildChampionMastery(mastery_entries);
+
+                    res.json(response);
+                })
+        })
 
 }

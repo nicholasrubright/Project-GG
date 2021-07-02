@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 router.get('/:summoner_name/profile', summonerController.profile);
 router.get('/:summoner_name/rankStats', summonerController.rankStats);
 router.get('/:summoner_name/matchHistory', summonerController.matchHistory);
-
+router.get('/:summoner_name/mastery', summonerController.mastery);
 
 router.get('/test', test_controller.test_function);
 
