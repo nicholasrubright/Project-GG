@@ -70,7 +70,7 @@ export default function Main(props) {
                 <h1><u><span style={{color: "#BADEFC"}}>PROJECT</span> <span style={{color: "#EB5160"}}>GG</span></u></h1>
             </div>
 
-            <div className="container-fluid">
+            <div className="container">
                 <SearchBar 
                     searchSummoner={searchSummoner}
                     fetchData={fetchData}

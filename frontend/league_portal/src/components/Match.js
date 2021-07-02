@@ -27,13 +27,13 @@ export default function Match(props) {
         <div>
             <div className="container match_card" style={{backgroundColor: win ? "#BADEFC" : "#EB5160"}}>
                 <div className="row align-items-center">
-                    <div className="col" style={{paddingRight: "10px"}}>
+                    <div className="col-6">
                         <img className="championIcon" alt="championIcon" src={champIconURL} />
                     </div>
-                    <div className="col">
+                    <div className="col-3">
                         <h4>{kda[0]}/{kda[1]}/{kda[2]}</h4>
                     </div>
-                    <div className="col">
+                    <div className="col-3">
                         <div class="container">
                             <div class="row row-cols-3">
                                 <div class="col"><img className="itemIcon" src={itemsIconURL.item1} /></div>
