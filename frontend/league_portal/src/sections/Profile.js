@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import RankStatCard from '../components/RankStatCard';
-
 export default function Profile (props) {
 
     const [profileInfo, setProfileInfo] = useState(props.profileInfo);

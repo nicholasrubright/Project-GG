@@ -102,24 +102,11 @@ export default function Main(props) {
                         <MatchHistory 
                             summonerName={localInfo.summonerName}
                         />
+
                     </div>
+
                 </div>}
             </div>
-            
-            {/* <div className="container">
-                <div className="d-flex justify-content-center">
-                {isLoading && <div className="loader"></div>}
-                </div>
-            </div> */}
-
-            {/* <div>
-            {localInfo.searchSummoner && !isLoading && 
-                <Profile 
-                    profileInfo={profileInfo}
-                />
-            }
-            </div> */}
-
         </div>
     );
 }
