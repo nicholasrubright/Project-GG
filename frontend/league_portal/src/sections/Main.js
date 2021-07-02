@@ -7,6 +7,7 @@ import SearchBar from '../components/SearchBar';
 import Profile from './Profile';
 import MatchHistory from './MatchHistory';
 import Rank from './Rank';
+import Mastery from '../components/Mastery';
 import Error from '../components/Error';
 
 export default function Main(props) {
@@ -61,7 +62,9 @@ export default function Main(props) {
 
     return (
         <div className="container">
-            <h1>Hello World!</h1>
+            <div className="container text-center title" style={{padding: "50px"}}>
+                <h1><u><span style={{color: "#BADEFC"}}>PROJECT</span> <span style={{color: "#EB5160"}}>GG</span></u></h1>
+            </div>
 
             <div className="container-fluid">
                 <SearchBar 
@@ -87,9 +90,13 @@ export default function Main(props) {
                         <Profile 
                             profileInfo={profileInfo}
                         />
+
                         <Rank 
                             rankInfo={rankInfo}
                         />
+
+                        <Mastery />
+
                     </div>
                     <div className="col-9">
                         <MatchHistory 

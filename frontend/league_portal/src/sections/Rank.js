@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
 
+import Graph from '../components/Graph';
+
 export default function Rank (props) {
     const [rankInfo, setRankInfo] = useState(props.rankInfo);
 
@@ -9,7 +11,7 @@ export default function Rank (props) {
             <div>
                 <h3>{entry.queueType.includes("SOLO") ? "Solo Queue" : "Flex Queue"}</h3>
                 <h5>{entry.tier} {entry.rank}</h5>
-                <h5>{entry.wins} / {entry.losses}</h5>
+                <Graph win_lose={[entry.wins, entry.losses]} />
             </div>
         )
     });

@@ -23,23 +23,20 @@ export default function Match(props) {
         item6: `http://ddragon.leagueoflegends.com/cdn/11.12.1/img/item/${items[5]}.png`
     };
 
-    const match_item = 
+    return (
         <div>
             <div className="container match_card" style={{backgroundColor: win ? "#BADEFC" : "#EB5160"}}>
                 <div className="row align-items-center">
-                    <div className="col">
-                        <img className="championIcon" src={champIconURL} />
+                    <div className="col" style={{paddingRight: "10px"}}>
+                        <img className="championIcon" alt="championIcon" src={champIconURL} />
                     </div>
                     <div className="col">
-                        <h3>{win ? "Win" : "Loss"}</h3>
-                    </div>
-                    <div className="col">
-                        <h3>{kda[0]}/{kda[1]}/{kda[2]}</h3>
+                        <h4>{kda[0]}/{kda[1]}/{kda[2]}</h4>
                     </div>
                     <div className="col">
                         <div class="container">
                             <div class="row row-cols-3">
-                                <div class="col" ><img className="itemIcon" src={itemsIconURL.item1} /></div>
+                                <div class="col"><img className="itemIcon" src={itemsIconURL.item1} /></div>
                                 <div class="col"><img className="itemIcon" src={itemsIconURL.item2} /></div>
                                 <div class="col"><img className="itemIcon" src={itemsIconURL.item3} /></div>
                                 <div class="col"><img className="itemIcon" src={itemsIconURL.item4} /></div>
@@ -50,11 +47,6 @@ export default function Match(props) {
                     </div>
                 </div>
             </div>
-        </div>;
-
-    return (
-        <div>
-            {match_item}
         </div>
     );
 

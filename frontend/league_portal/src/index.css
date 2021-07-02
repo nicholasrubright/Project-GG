@@ -2,6 +2,11 @@ body {
     background-color: #0A122A !important;
 }
 
+.title {
+    color: white;
+    font-style: italic;
+}
+
 
 .loader {
     border: 10px solid #f3f3f3; /* Light grey */
@@ -26,8 +31,7 @@ body {
 
 .match_card {
     padding: 20px;
-    margin: 5px;
-    border-radius: 30px;
+    margin: 8px;
 }
 
 
@@ -48,3 +52,4 @@ body {
     height: 8rem;
     background-color: #e66673;
 }
+

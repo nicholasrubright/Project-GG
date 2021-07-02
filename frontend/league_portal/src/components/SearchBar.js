@@ -11,11 +11,6 @@ export default function SearchBar (props) {
         searchRegion: ""
     });
 
-    
-
-
-    //const searchSummoner = props.searchSummoner();
-
     function changeRegion(region) {
 
         setSearchInfo({
@@ -30,7 +25,6 @@ export default function SearchBar (props) {
             searchText : evt.target.value
         });
 
-        //console.log("testing2: " + JSON.stringify(searchInfo));
     }
 
     return (
